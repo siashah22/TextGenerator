@@ -23,3 +23,5 @@ A **text generation tool** leverages artificial intelligence to automatically pr
 4. **Input-to-Output Workflow:** The user provides a prompt or seed text, and the model generates a response, continuing or expanding upon the input.
 
 For example, **GPT-based tools** can generate emails, articles, or creative stories, while models like **T5** excel at summarization or translation tasks. These tools significantly reduce the time and effort required for content creation while maintaining quality and relevance.
+
+# Output 
