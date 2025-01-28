@@ -24,5 +24,9 @@ A **text generation tool** leverages artificial intelligence to automatically pr
 
 For example, **GPT-based tools** can generate emails, articles, or creative stories, while models like **T5** excel at summarization or translation tasks. These tools significantly reduce the time and effort required for content creation while maintaining quality and relevance.
 
+# Input 
+
+A prompt was given as : **prompt = "Once upon a time in a land far, far away"**
+
 # Output 
 ![Image](https://github.com/user-attachments/assets/cb76e892-b73b-440d-9083-6b95fb9f0abc)
