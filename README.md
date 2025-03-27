@@ -1,17 +1,5 @@
 # TextGenerator
 
-**COMPANY** : CODTECH IT SOLUTIONS
-
-**NAME** : SIA SHAH
-
-**INTERN ID** : CT08JOP
-
-**DOMAIN NAME** : ARTIFICIAL INTELLIGENCE
-
-**BATCH DURATION** : JANUARY 6TH,2025 TO FEBRUARY 6TH,2025
-
-**MENTOR NAME** : NEELA SANTOSH
-
 # Description of Text Generator Tool 
 
 A **text generation tool** leverages artificial intelligence to automatically produce coherent and contextually relevant text based on user input. It utilizes **pre-trained models** like OpenAI's GPT or Google's T5, which are large-scale deep learning models trained on diverse text datasets. 
