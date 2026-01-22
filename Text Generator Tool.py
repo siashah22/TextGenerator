@@ -3,59 +3,46 @@
 
 # In[1]:
 
+import os
+from openai import OpenAI
 
-import os 
-os.environ["HF_HUB_DISABLE_SYMLINKS_WARNING"]="1"
-import tensorflow as tf
-tf.compat.v1.logging.set_verbosity(tf.compat.v1.logging.ERROR)
-from transformers import TFGPT2LMHeadModel, GPT2Tokenizer
+# Initialize OpenAI client (API key from environment variable)
+client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
-# Load pre-trained GPT-2 model and tokenizer from Hugging Face
-model_name = 'gpt2'  # You can choose other versions like 'gpt2-medium', 'gpt2-large', etc.
-model = TFGPT2LMHeadModel.from_pretrained(model_name)
-tokenizer = GPT2Tokenizer.from_pretrained(model_name)
-
-# Ensure the tokenizer knows padding tokens
-if tokenizer.pad_token is None:
-    tokenizer.pad_token = tokenizer.eos_token
-
-
-# Function to generate text using GPT-2
-def generate_text(model, tokenizer, prompt, max_length=500):
-    # Encode input prompt to tensor
-    input_ids = tokenizer.encode(prompt, return_tensors='tf')
-
-    # Generate text from the input prompt
-    output = model.generate(input_ids, 
-                            max_length=max_length, 
-                            num_return_sequences=1, 
-                            no_repeat_ngram_size=2,  # Prevent repeating phrases
-                            top_k=50,  # Sampling strategy
-                            top_p=0.95,  # Sampling strategy
-                            temperature=1.0,  # Sampling temperature
-                            do_sample=True,  # Enable sampling
-                            pad_token_id=tokenizer.pad_token_id)
-
-    # Decode the generated text back to human-readable text
-    generated_text = tokenizer.decode(output[0], skip_special_tokens=True)
+def generate_text(prompt, max_tokens=150, temperature=0.7):
+    """
+    Generate text using GPT.
     
-    return generated_text
+    Args:
+        prompt (str): Input text prompt
+        max_tokens (int): Length of generated text
+        temperature (float): Creativity level (0.0 - 1.0)
+    
+    Returns:
+        str: Generated text
+    """
 
-# Example usage
-prompt = "Once upon a time in a land far, far away"
-generated_text = generate_text(model, tokenizer, prompt, max_length=200)
+    response = client.responses.create(
+        model="gpt-4.1-mini",
+        input=prompt,
+        max_output_tokens=max_tokens,
+        temperature=temperature
+    )
 
-print("Generated Text:")
-print(generated_text)
-
-
-# In[ ]:
-
+    return response.output_text
 
 
 
+print("GPT-Based Text Generator\n")
 
-# In[ ]:
+prompt = input("Enter prompt:\n")
+max_tokens = int(input("Enter max tokens (e.g. 100): "))
+temperature = float(input("Enter creativity (0.0 - 1.0): "))
+
+result = generate_text(prompt, max_tokens, temperature)
+
+print("\nGenerated Text:\n")
+print(result)
 
 
 
