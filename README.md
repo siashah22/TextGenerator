@@ -14,7 +14,21 @@ For example, **GPT-based tools** can generate emails, articles, or creative stor
 
 # Input 
 
-A prompt was given as : **prompt = "Once upon a time in a land far, far away"**
+GPT-Based Text Generator
+
+Enter prompt:
+Explain supervised learning using an example .
+Enter max tokens (e.g. 100): 95
+Enter creativity (0.0 - 1.0): 0.6
 
 # Output 
-![Image](https://github.com/user-attachments/assets/cb76e892-b73b-440d-9083-6b95fb9f0abc)
+
+Generated Text:
+
+**Supervised learning** is a type of machine learning where the model is trained on a labeled dataset. This means that each training example is paired with an output label. The goal of the model is to learn a mapping from inputs to the correct output so that it can predict the label for new, unseen data.
+
+### Example of Supervised Learning:
+
+**Task:** Email Spam Detection
+
+- **Input:** Email text or features extracted from the email (e.g., presence of
